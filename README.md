@@ -36,6 +36,12 @@ No signup. No network. Self-host (`docker compose up` in the full service). Your
 node demo.mjs
 ```
 
+## Ran the demo?
+
+Open an issue and leave one sentence.
+
+*What happened next?*
+
 ---
 
 *MIT-licensed demo. The decision engine binds to a runtime reason-code canon in the full service; this demo reproduces the behavior standalone.*
