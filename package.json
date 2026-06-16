@@ -1,0 +1,12 @@
+{
+  "name": "explainable-human-final-demo",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "When an AI agent tries something irreversible, it is held at the boundary and explained: who decided, why it blocked, why it became safe to continue.",
+  "license": "MIT",
+  "scripts": {
+    "demo": "node demo.mjs",
+    "continue": "node demo.mjs --continue"
+  }
+}
