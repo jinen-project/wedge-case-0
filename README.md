@@ -12,6 +12,10 @@ No agent framework, no policy DSL, no SDK. The scenario is hardcoded.
 This is a **sketch of what a resumed event could look like** when the
 boundary is readable in human language.
 
+The credential check is a deliberately trivial placeholder. It is not
+proposed as a production defense; it simply stands in for whatever
+policy engine or validation mechanism would occupy that point.
+
 ## See it in 30 seconds
 
 ```bash
