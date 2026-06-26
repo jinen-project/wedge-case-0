@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // 30-second demo — self-contained, no network, no signup, no dependencies.
-// An AI agent tries an irreversible external action; it is held at the boundary and explained:
-// who decides, why it blocked, why it became safe to continue. The machine has no execute surface
-// for external actions, by construction — not a setting.
-//   node demo.mjs              → Screen 1 (the agent tries · ⛔ HELD · reason · resume condition)
+// A script tries an irreversible external action; it is held at the boundary and explained:
+// who decides, why it blocked, why it became safe to continue. This is a sketch — no agent or
+// LLM is wired up; the scenario is hardcoded.
+//   node demo.mjs              → Screen 1 (the script tries · ⛔ HELD · reason · resume condition)
 //   node demo.mjs --prevention → Screen 1, the "could happen" variant
 //   node demo.mjs --continue   → Screen 2 (how it resumed, after a human changed one thing)
 //   add --play for paced output

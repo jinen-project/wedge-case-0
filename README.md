@@ -23,6 +23,8 @@ node demo.mjs              # → ⛔ HELD · reason · resume condition
 node demo.mjs --continue   # → ✅ RESUMED · after one line changed
 ```
 
+Optional: `--prevention` for the "could happen" framing, `--play` for paced output.
+
 ```
    ⛔  HELD
        Reason             :  credential detected

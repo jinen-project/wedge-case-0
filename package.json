@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "description": "When an AI agent tries something irreversible, it is held at the boundary and explained: who decided, why it blocked, why it became safe to continue.",
+  "description": "A four-file MIT demo that explains why something was held—and how it resumed.",
   "license": "MIT",
   "scripts": {
     "demo": "node demo.mjs",
