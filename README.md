@@ -1,56 +1,68 @@
-# wedge-case-0 — explain why something was held, and how it resumed
+# wedge-case-0
 
-A four-file MIT demo. **Runnable in 30 seconds, no signup, no dependencies.**
+In AI-driven workflows, treating every interruption as STOP can be too coarse.
 
-A script tries to send an external message that contains an embedded credential.
-A boundary check holds the action and **explains it in plain English**:
-who decided, why it blocked, and what would need to change to resume.
-Change one line, run with `--continue`, and the action is shown resumed.
+Some actions must not continue.
+Those should STOP.
 
-That's the whole thing. ~50 lines of code, terminal output only.
-No agent framework, no policy DSL, no SDK. The scenario is hardcoded.
-This is a **sketch of what a resumed event could look like** when the
-boundary is readable in human language.
+But some actions may be able to continue if something changes.
+Those can be treated as HOLD.
 
-The credential check is a deliberately trivial placeholder. It is not
-proposed as a production defense; it simply stands in for whatever
-policy engine or validation mechanism would occupy that point.
+When an action is held, the output shows:
+why it was held,
+what must change before it can resume,
+and that a human decision is required.
 
-## See it in 30 seconds
+The idea is simple:
+if STOP and HOLD are separated, it becomes easier to reason about conditions,
+explain why something paused, and keep a useful record of what happened.
 
-```bash
-node demo.mjs              # → ⛔ HELD · reason · resume condition
-node demo.mjs --continue   # → ✅ RESUMED · after one line changed
-```
+wedge-case-0 is a four-file demo of that idea.
 
-Optional: `--prevention` for the "could happen" framing, `--play` for paced output.
+**Runnable in 30 seconds. No signup, no network, no dependencies.**
 
-```
-   ⛔  HELD
-       Reason             :  credential detected
-       Resume condition   :  remove the credential   ·   human approval required
-       Without this check :  the credential would have been emailed to the customer.
-```
-
-## Why a sketch instead of a framework
-
-Most agent-safety surfaces have words for **blocked** and **logged**.
-Few have a word for **resumed**. This sketch tries to make the missing half
-readable:
-
-- **Who decided?** — a human (the example shows the role; no agent or LLM is wired up).
-- **Why did it block?** — an explicit reason + the evidence that produced it.
-- **Why did it resume?** — *what changed* (e.g. credential removed, hash `A → B`) — and who approved.
-
-It is a sketch, not a product. There is no SDK, no policy engine, no runtime.
-
-## Run it
-
-No signup, no network, no dependencies. Clone the repo and run:
+## See the three outcomes
 
 ```bash
-node demo.mjs
+node demo.mjs                          # → ⏸ HOLD (default)
+node demo.mjs --case pass              # → ✅ PASS
+node demo.mjs --case hold              # → ⏸ HOLD
+node demo.mjs --case hold --continue   # → ✅ RESUMED (after the condition was met)
+node demo.mjs --case stop              # → ⛔ STOP
 ```
+
+Add `--play` for paced output.
+
+```
+   ⏸  HOLD
+       Reason             :  credential detected in outbound message
+       Resume condition   :  remove the credential
+       Human check        :  required before resume
+       Record             :  hold_id=hold-001
+```
+
+## Is this already a thing?
+
+Yes, adjacent ideas already exist:
+access control, policy engines, approval workflows, workflow engines,
+human-in-the-loop systems, and pre-action authorization for agents.
+
+wedge-case-0 does not try to replace any of them.
+
+It only isolates one operational distinction:
+
+- **STOP**: the action must not continue
+- **HOLD**: the action may continue only after a condition changes
+
+This demo makes that distinction visible in one place:
+the reason, the resume condition, the human check, and the record.
+
+## It's a sketch, not a product
+
+The scenarios are hardcoded and the checks are deliberately trivial placeholders.
+No SDK, no policy engine, no runtime; no agent or LLM is wired up.
+It is not a production defense — it's a sketch for seeing what STOP/HOLD separation buys:
+the reason, the resume condition, the human check, and the record.
 
 ## Ran the demo?
 
