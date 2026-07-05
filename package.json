@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "description": "A four-file MIT demo that explains why something was held—and how it resumed.",
+  "description": "A four-file MIT demo for separating STOP and HOLD in an AI-driven workflow.",
   "license": "MIT",
   "scripts": {
     "demo": "node demo.mjs",
