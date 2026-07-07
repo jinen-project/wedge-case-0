@@ -1,10 +1,20 @@
 ---
 name: I ran the demo
-about: Leave one sentence — what happened next?
+about: Share what happened when you ran the demo
 ---
 
-You ran the demo.
+Thanks for running the demo.
 
-What happened next?
+Command:
 
-(One sentence only)
+```bash
+node demo.mjs
+```
+
+Result:
+
+```text
+HOLD / PASS / RESUMED / STOP
+```
+
+One note:
