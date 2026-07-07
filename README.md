@@ -1,67 +1,49 @@
 # wedge-case-0
 
-In AI-driven workflows, treating every interruption as STOP can be too coarse.
+A four-file demo for separating PASS, HOLD, and STOP in AI workflows.
+It focuses on making the stopped state visible, not on deciding what the rules should be.
 
-Some actions must not continue.
-Those should STOP.
-
-But some actions may be able to continue if something changes.
-Those can be treated as HOLD.
-
-When an action is held, the output shows:
-why it was held,
-what must change before it can resume,
-and that a human decision is required.
-
-The idea is simple:
-if STOP and HOLD are separated, it becomes easier to reason about conditions,
-explain why something paused, and keep a useful record of what happened.
-
-wedge-case-0 is a four-file demo of that idea.
-
-**Runnable in 30 seconds. No signup, no network, no dependencies.**
-
-## See the three outcomes
+## Quick start
 
 ```bash
-node demo.mjs                          # → ⏸ HOLD (default)
-node demo.mjs --case pass              # → ✅ PASS
-node demo.mjs --case hold              # → ⏸ HOLD
-node demo.mjs --case hold --continue   # → ✅ RESUMED (after the condition was met)
-node demo.mjs --case stop              # → ⛔ STOP
+node demo.mjs                          # ⏸ HOLD (default)
+node demo.mjs --case pass              # ✅ PASS
+node demo.mjs --case hold --continue   # ✅ RESUMED (after the condition is met)
+node demo.mjs --case stop              # ⛔ STOP
 ```
 
-Add `--play` for paced output.
+No install. No signup, no network, no dependencies — just Node.js. Add `--play` for paced output.
+
+## What you see
 
 ```
    ⏸  HOLD
-       Reason             :  credential detected in outbound message
-       Resume condition   :  remove the credential
-       Human check        :  required before resume
-       Record             :  hold_id=hold-001
+
+       Reason            :  credential detected in outbound message
+       Resume condition  :  remove the credential
+       Human check       :  required before resume
+       Record            :  hold_id=hold-001
 ```
 
-## Is this already a thing?
+```
+   ⛔  STOP
 
-Yes, adjacent ideas already exist:
-access control, policy engines, approval workflows, workflow engines,
-human-in-the-loop systems, and pre-action authorization for agents.
+       Reason            :  blocked destination or irreversible unsafe action
+       Resume condition  :  none in this workflow
+       Next step         :  create a new request — the rule lives outside this demo
+       Record            :  stop_id=stop-001
+```
 
-wedge-case-0 does not try to replace any of them.
+- **STOP** — must not continue; not resumed in this flow.
+- **HOLD** — can continue once a condition changes, so it carries a reason, a resume condition, a human check, and a record.
+- **PASS** — nothing matched; continues as-is.
 
-It only isolates one operational distinction:
+## Scope
 
-- **STOP**: the action must not continue
-- **HOLD**: the action may continue only after a condition changes
+The scenarios are hardcoded and the checks are deliberately simple placeholders.
+There is no SDK, policy engine, runtime, agent, or LLM wired up.
 
-This demo makes that distinction visible in one place:
-the reason, the resume condition, the human check, and the record.
-
-## It's a sketch, not a product
-
-The scenarios are hardcoded and the checks are deliberately trivial placeholders.
-No SDK, no policy engine, no runtime; no agent or LLM is wired up.
-It is not a production defense — it's a sketch for seeing what STOP/HOLD separation buys:
+This demo shows what becomes easier to handle when STOP and HOLD are separated:
 the reason, the resume condition, the human check, and the record.
 
 ## Ran the demo?
@@ -72,4 +54,4 @@ Open an issue and leave one sentence.
 
 ---
 
-*MIT-licensed sketch. Four files. No dependencies.*
+*MIT-licensed. Four files. No dependencies.*
