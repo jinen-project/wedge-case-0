@@ -40,11 +40,9 @@ No install. No signup, no network, no dependencies — just Node.js. Add `--play
 
 ## Scope
 
-The scenarios are hardcoded and the checks are deliberately simple placeholders.
-There is no SDK, policy engine, runtime, agent, or LLM wired up.
-
-This demo shows what becomes easier to handle when STOP and HOLD are separated:
-the reason, the resume condition, the human check, and the record.
+The scenarios are hardcoded and the checks are simple placeholders — the demo does one thing:
+it separates STOP and HOLD so the reason, the resume condition, the human check, and the record
+each have a place to live.
 
 ## Ran the demo?
 

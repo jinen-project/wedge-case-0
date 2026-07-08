@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "description": "A four-file MIT demo for separating STOP and HOLD in an AI-driven workflow.",
+  "description": "A four-file demo for separating PASS, HOLD, and STOP in AI workflows.",
   "license": "MIT",
   "scripts": {
     "demo": "node demo.mjs",

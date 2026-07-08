@@ -3,9 +3,9 @@
 // It separates three outcomes for one step in an AI-driven workflow:
 //   PASS — no boundary matched; the action can continue.
 //   HOLD — the action may continue once a condition changes (reason · resume condition · human check).
-//   STOP — the action must not continue in this workflow (no resume; needs a new request/policy).
+//   STOP — the action must not continue in this workflow (no resume; needs a new request).
 // The scenarios are hardcoded and the checks are deliberately trivial placeholders.
-// This is NOT a policy engine and NOT a production defense — a sketch of the STOP/HOLD distinction.
+// A sketch of the STOP/HOLD distinction.
 //   node demo.mjs                        → the HOLD case (default)
 //   node demo.mjs --case pass|hold|stop  → that case
 //   node demo.mjs --case hold --continue → the HOLD case after its condition was met (RESUMED)
