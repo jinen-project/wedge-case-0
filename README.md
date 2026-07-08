@@ -50,6 +50,11 @@ Open an issue and leave one sentence.
 
 *What happened next?*
 
+## Background
+
+Why the demo splits STOP and HOLD — a write-up (in Japanese):
+[Separating STOP and HOLD in AI workflows](https://zenn.dev/y_yoshimura/articles/3b311895a02616)
+
 ---
 
 *MIT-licensed. Four files. No dependencies.*

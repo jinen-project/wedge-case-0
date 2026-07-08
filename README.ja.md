@@ -47,6 +47,11 @@ node demo.mjs --case stop              # ⛔ STOP
 
 Issue を開いて、一文だけ残してください。
 
+## 背景
+
+なぜ STOP と HOLD を分けたのか、実装で迷った点を記事にしました。
+[AIワークフローで STOP と HOLD を分けてみた](https://zenn.dev/y_yoshimura/articles/3b311895a02616)
+
 ---
 
 *MIT ライセンス。4ファイル。依存なし。*
