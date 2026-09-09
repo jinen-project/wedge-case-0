@@ -50,6 +50,8 @@ Open an issue and leave one sentence.
 
 *What happened next?*
 
+For related runnable specimens and field notes, visit the [Jinen Project public hub](https://github.com/jinen-project/jinen-project).
+
 ## Background
 
 Why the demo splits STOP and HOLD — a write-up (in Japanese):
