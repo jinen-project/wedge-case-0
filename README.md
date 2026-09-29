@@ -1,3 +1,9 @@
+Archived historical specimen.
+
+The current runnable public workflow demo is reliable-ai-workflow-demo.
+
+This repository remains available for provenance and can be reactivated if its specific specimen is needed.
+
 # wedge-case-0
 
 A four-file demo for separating PASS, HOLD, and STOP in AI workflows.
